@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Add Employees</title>
+ {% block content %}
+ {% endblock %}
+        <div class="border border-5 m-auto mt-5 p-3 col-3">
+            <h4 class="text-center text-primary">Employee Form</h4>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Add" class="btn btn-primary col-5">
+                <input type="reset" value="Clear" class="btn btn-warning col-5 float-end">
+            </form>
+        </div>
+ {% endblock %}

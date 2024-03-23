@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Show</title>
+ {% endblock %}
+ {% block content %}
+
+        <table class="table table-dark table-hover">
+                <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Salary</th>
+                            <th>Mode</th>
+                            <th colspan="2" class="text-center">Action</th>
+                        </tr>
+                </thead>
+                <tbody>
+                    {% for employee in employees %}
+                        <tr>
+                            <td>{{ employee.eid }}</td>
+                            <td>{{ employee.ename }}</td>
+                            <td>{{ employee.esal }}</td>
+                            <td>{{ employee.mode }}</td>
+                            <td>
+                                <a href="{% url 'update_url' employee.eid %}">
+                                    <button class="btn btn-primary">&nbsp Update</button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'delete_url' employee.eid %}">
+                                    <button class="btn btn-warning">&nbsp Delete</button>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+ {% endblock %}
